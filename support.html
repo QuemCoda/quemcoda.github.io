@@ -1,69 +1,187 @@
 <!DOCTYPE html>
-  <html lang="pt">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suporte — TachoBot</title>
-    <style>
-      body { font-family: sans-serif; max-width: 680px; margin: 40px auto; padding: 0 20px; color: #333;
-  line-height: 1.6; }
-      h1 { font-size: 24px; }
-      h2 { font-size: 18px; margin-top: 32px; }
-      a { color: #E0632E; }
-    </style>
-  </head>
-  <body>
-    <h1>Suporte — TachoBot</h1>
-    <p><em>Última atualização: 13 de julho de 2026</em></p>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Suporte — TachoBot</title>
+<meta name="description" content="Suporte e perguntas frequentes da app TachoBot." />
+<link rel="icon" href="brand/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0B0C0F; --panel: #131418; --panel2: #1A1C21;
+    --ink: #F5F5F7; --soft: #9FA0A7; --mute: #66686F;
+    --line: rgba(255,255,255,0.09); --lineHard: rgba(255,255,255,0.14);
+    --accent: #E0632E; --accent2: #ec7d4e; --dim: rgba(224,99,46,0.12);
+    --disp: "Archivo", system-ui, sans-serif;
+    --body: "Space Grotesk", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+    --maxw: 820px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent2); }
+  h1, h2, h3 { font-family: var(--disp); letter-spacing: -0.02em; margin: 0; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
 
-    <p>A <strong>TachoBot</strong> é a tua app de receitas para robôs de cozinha:
-    milhares de receitas com passo a passo, menu semanal, lista de compras e
-    exportação em PDF. Nesta página encontras respostas às dúvidas mais comuns e
-    como falar connosco.</p>
+  header { position: sticky; top: 0; z-index: 50; background: rgba(11,12,15,0.72); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 66px; max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .brand { display: flex; align-items: center; gap: 11px; }
+  .brand img { width: 34px; height: 34px; object-fit: contain; display: block; }
+  .brand span { font-family: var(--disp); font-size: 20px; font-weight: 800; letter-spacing: -0.5px; color: var(--ink); }
+  .nav-links { display: flex; align-items: center; gap: 30px; }
+  .nav-links a { color: var(--soft); font-size: 14.5px; font-weight: 500; }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+  .nav-links a.nav-cta { padding: 9px 18px; color: #fff; }
+  .nav-links a.nav-cta:hover { color: #fff; }
 
-    <h2>Contacto</h2>
-    <p>Para qualquer questão, sugestão ou problema, escreve-nos para
-    <a href="mailto:quemcoda@gmail.com">quemcoda@gmail.com</a>. Respondemos o mais
-    depressa possível.</p>
+  .hero-doc { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+  .hero-doc::before { content: ""; position: absolute; width: 700px; height: 700px; border-radius: 50%; top: -380px; right: -220px; background: radial-gradient(circle, rgba(224,99,46,0.2) 0%, transparent 62%); pointer-events: none; }
+  .hero-doc .wrap { padding-top: 68px; padding-bottom: 44px; position: relative; z-index: 2; }
+  .kicker { font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); }
+  .hero-doc h1 { font-size: 52px; line-height: 1; font-weight: 800; letter-spacing: -1.8px; margin: 16px 0 0; }
+  .hero-doc .sub { font-size: 18px; line-height: 1.6; color: var(--soft); margin: 18px 0 0; max-width: 620px; }
 
-    <h2>Perguntas frequentes</h2>
+  .doc { padding: 54px 0 40px; }
 
-    <h2>Como ativo a versão Pro?</h2>
-    <p>Abre o ecrã do Pro na app e conclui a compra única. O Pro remove os anúncios
-    e desbloqueia as funcionalidades adicionais, para sempre — sem subscrições nem
-    renovações.</p>
+  .contact-card { background: var(--panel); border: 1px solid var(--lineHard); border-radius: 18px; padding: 26px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 46px; }
+  .contact-card .t h3 { margin: 0; font-size: 21px; }
+  .contact-card .t p { margin: 6px 0 0; font-size: 14.5px; color: var(--soft); }
+  .btn-primary { display: inline-flex; align-items: center; gap: 9px; background: var(--accent); color: #fff; padding: 12px 22px; border-radius: 999px; font-family: var(--body); font-size: 14.5px; font-weight: 700; }
+  .btn-primary:hover { background: var(--accent2); color: #fff; }
 
-    <h2>Já tinha o Pro e mudei de dispositivo (ou reinstalei). Como o recupero?</h2>
-    <p>No ecrã do Pro toca em <strong>“Restaurar compras”</strong>. A compra é
-    reconhecida pela tua conta da loja (Google Play ou App Store), por isso usa o
-    mesmo início de sessão que usaste ao comprar.</p>
+  .sec-label { font-size: 15px; font-family: var(--mono); font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin: 0 0 18px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
 
-    <h2>Como exporto as minhas receitas em PDF?</h2>
-    <p>Na app tens a opção de exportar receitas em PDF, para as guardares ou
-    partilhares. O ficheiro é gerado no teu dispositivo.</p>
+  .faq { display: flex; flex-direction: column; gap: 10px; }
+  details { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: border-color .15s; }
+  details[open] { border-color: var(--lineHard); background: var(--panel2); }
+  summary { list-style: none; cursor: pointer; padding: 18px 22px; font-family: var(--disp); font-size: 17px; font-weight: 700; letter-spacing: -0.3px; color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  summary::-webkit-details-marker { display: none; }
+  summary .chev { width: 22px; height: 22px; flex-shrink: 0; color: var(--accent); transition: transform .2s; }
+  details[open] summary .chev { transform: rotate(45deg); }
+  details .body { padding: 0 22px 20px; }
+  details .body p { font-size: 15.5px; line-height: 1.66; color: #C9CAD0; margin: 0; }
+  details .body strong { color: var(--ink); font-weight: 600; }
 
-    <h2>Como crio ou importo receitas?</h2>
-    <p>Podes criar as tuas próprias receitas ou importá-las na app. Ficam guardadas
-    localmente no teu dispositivo e disponíveis também no menu semanal e na lista de
-    compras.</p>
+  footer { border-top: 1px solid var(--line); padding: 50px 0 40px; margin-top: 8px; }
+  .foot-wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .foot { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+  .foot .brand span { font-size: 18px; }
+  .foot .tag { font-size: 13.5px; color: var(--mute); margin-top: 12px; max-width: 280px; line-height: 1.5; }
+  .foot-links { display: flex; gap: 54px; flex-wrap: wrap; }
+  .foot-col { display: flex; flex-direction: column; gap: 11px; }
+  .foot-col .h { font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--mute); margin-bottom: 4px; }
+  .foot-col a { color: var(--soft); font-size: 14px; }
+  .foot-col a:hover { color: var(--ink); }
+  .copyright { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--mute); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 
-    <h2>Vejo anúncios. Como os removo?</h2>
-    <p>Os anúncios existem apenas na versão gratuita. Ao ativares o <strong>Pro</strong>
-    deixas de ver anúncios e o respetivo SDK deixa de recolher dados.</p>
+  @media (max-width: 720px) {
+    .nav-links { gap: 18px; }
+    .nav-links a:not(.active):first-child { display: none; }
+    .hero-doc h1 { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
 
-    <h2>Como giro o consentimento de anúncios e privacidade?</h2>
-    <p>No Espaço Económico Europeu é mostrado um formulário de consentimento (Google
-    UMP) e, no iOS, o pedido de App Tracking Transparency. Podes rever ou revogar o
-    teu consentimento a qualquer momento nas <strong>definições da app</strong>.</p>
+<header>
+  <div class="nav">
+    <a class="brand" href="./index.html">
+      <img src="brand/mark-enamel.png" alt="TachoBot" />
+      <span>TachoBot</span>
+    </a>
+    <nav class="nav-links">
+      <a href="./index.html">Início</a>
+      <a href="./index.html#funcionalidades">Funcionalidades</a>
+      <a href="./support.html" class="active">Suporte</a>
+      <a href="./privacy.html">Privacidade</a>
+      <a class="btn-primary nav-cta" href="./index.html#descarregar">Descarregar</a>
+    </nav>
+  </div>
+</header>
 
-    <h2>Onde ficam os meus dados? Como os apago?</h2>
-    <p>As tuas receitas, menus, favoritos e lista de compras ficam apenas no teu
-    dispositivo — não temos servidores próprios. Podes apagá-los nas definições da
-    app ou desinstalando a app. Vê todos os detalhes na nossa
-    <a href="https://quemcoda.github.io/privacy.html">Política de Privacidade</a>.</p>
+<section class="hero-doc">
+  <div class="wrap">
+    <div class="kicker">Ajuda</div>
+    <h1>Suporte</h1>
+    <p class="sub">A TachoBot é a tua app de receitas para robôs de cozinha: milhares de receitas com passo a passo, menu semanal, lista de compras e exportação em PDF. Aqui encontras respostas às dúvidas mais comuns e como falar connosco.</p>
+  </div>
+</section>
 
-    <h2>Privacidade</h2>
-    <p>Consulta a <a href="https://quemcoda.github.io/privacy.html">Política de
-    Privacidade da TachoBot</a>.</p>
-  </body>
+<main class="doc">
+  <div class="wrap">
+    <div class="contact-card">
+      <div class="t">
+        <h3>Precisas de ajuda?</h3>
+        <p>Para qualquer questão, sugestão ou problema, escreve-nos. Respondemos o mais depressa possível.</p>
+      </div>
+      <a class="btn-primary" href="mailto:quemcoda@gmail.com">quemcoda@gmail.com</a>
+    </div>
+
+    <div class="sec-label">Perguntas frequentes</div>
+    <div class="faq">
+      <details open>
+        <summary>Como ativo a versão Pro?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="body"><p>Abre o ecrã do Pro na app e conclui a compra única. O Pro remove os anúncios e desbloqueia as funcionalidades adicionais, para sempre — sem subscrições nem renovações.</p></div>
+      </details>
+      <details>
+        <summary>Já tinha o Pro e mudei de dispositivo. Como o recupero?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="body"><p>No ecrã do Pro toca em <strong>“Restaurar compras”</strong>. A compra é reconhecida pela tua conta da loja (Google Play ou App Store), por isso usa o mesmo início de sessão que usaste ao comprar.</p></div>
+      </details>
+      <details>
+        <summary>Como exporto as minhas receitas em PDF?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="body"><p>Na app tens a opção de exportar receitas em PDF, para as guardares ou partilhares. O ficheiro é gerado no teu dispositivo.</p></div>
+      </details>
+      <details>
+        <summary>Como crio ou importo receitas?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="body"><p>Podes criar as tuas próprias receitas ou importá-las na app. Ficam guardadas localmente no teu dispositivo e disponíveis também no menu semanal e na lista de compras.</p></div>
+      </details>
+      <details>
+        <summary>Vejo anúncios. Como os removo?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="body"><p>Os anúncios existem apenas na versão gratuita. Ao ativares o <strong>Pro</strong> deixas de ver anúncios e o respetivo SDK deixa de recolher dados.</p></div>
+      </details>
+      <details>
+        <summary>Como giro o consentimento de anúncios e privacidade?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="body"><p>No Espaço Económico Europeu é mostrado um formulário de consentimento (Google UMP) e, no iOS, o pedido de App Tracking Transparency. Podes rever ou revogar o teu consentimento a qualquer momento nas <strong>definições da app</strong>.</p></div>
+      </details>
+      <details>
+        <summary>Onde ficam os meus dados? Como os apago?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="body"><p>As tuas receitas, menus, favoritos e lista de compras ficam apenas no teu dispositivo — não temos servidores próprios. Podes apagá-los nas definições da app ou desinstalando a app. Vê todos os detalhes na nossa <a href="./privacy.html">Política de Privacidade</a>.</p></div>
+      </details>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="./index.html"><img src="brand/mark-enamel.png" alt="TachoBot" /><span>TachoBot</span></a>
+        <div class="tag">O teu ajudante de cozinha para Bimby, Yammi e outros robôs.</div>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <div class="h">Produto</div>
+          <a href="./index.html#funcionalidades">Funcionalidades</a>
+          <a href="./index.html#descarregar">Descarregar</a>
+        </div>
+        <div class="foot-col">
+          <div class="h">Apoio</div>
+          <a href="./support.html">Suporte</a>
+          <a href="./privacy.html">Privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2026 QuemCoda · TachoBot</span>
+      <span>Feito com carinho em Portugal</span>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>

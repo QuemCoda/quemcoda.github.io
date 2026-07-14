@@ -1,82 +1,197 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Política de Privacidade — TachoBot</title>
-  <style>
-    body { font-family: sans-serif; max-width: 680px; margin: 40px auto; padding: 0 20px; color: #333; line-height: 1.6; }
-    h1 { font-size: 24px; }
-    h2 { font-size: 18px; margin-top: 32px; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Política de Privacidade — TachoBot</title>
+<meta name="description" content="Política de Privacidade da app TachoBot." />
+<link rel="icon" href="brand/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0B0C0F; --panel: #131418; --panel2: #1A1C21;
+    --ink: #F5F5F7; --soft: #9FA0A7; --mute: #66686F;
+    --line: rgba(255,255,255,0.09); --lineHard: rgba(255,255,255,0.14);
+    --accent: #E0632E; --accent2: #ec7d4e; --dim: rgba(224,99,46,0.12);
+    --disp: "Archivo", system-ui, sans-serif;
+    --body: "Space Grotesk", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+    --maxw: 820px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent2); }
+  h1, h2, h3 { font-family: var(--disp); letter-spacing: -0.02em; margin: 0; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+  header { position: sticky; top: 0; z-index: 50; background: rgba(11,12,15,0.72); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 66px; max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .brand { display: flex; align-items: center; gap: 11px; }
+  .brand img { width: 34px; height: 34px; object-fit: contain; display: block; }
+  .brand span { font-family: var(--disp); font-size: 20px; font-weight: 800; letter-spacing: -0.5px; color: var(--ink); }
+  .nav-links { display: flex; align-items: center; gap: 30px; }
+  .nav-links a { color: var(--soft); font-size: 14.5px; font-weight: 500; }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+  .nav-links a.nav-cta { padding: 9px 18px; color: #fff; }
+  .nav-links a.nav-cta:hover { color: #fff; }
+
+  .hero-doc { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+  .hero-doc::before { content: ""; position: absolute; width: 700px; height: 700px; border-radius: 50%; top: -380px; right: -220px; background: radial-gradient(circle, rgba(224,99,46,0.2) 0%, transparent 62%); pointer-events: none; }
+  .hero-doc .wrap { padding-top: 68px; padding-bottom: 44px; position: relative; z-index: 2; }
+  .kicker { font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); }
+  .hero-doc h1 { font-size: 52px; line-height: 1; font-weight: 800; letter-spacing: -1.8px; margin: 16px 0 0; }
+  .updated { font-family: var(--mono); font-size: 13px; color: var(--mute); margin-top: 18px; }
+
+  .doc { padding: 54px 0 40px; }
+  .doc .lead { font-size: 18px; line-height: 1.6; color: var(--soft); margin: 0 0 40px; }
+  .doc section { margin-bottom: 38px; }
+  .doc h2 { font-size: 15px; font-family: var(--mono); font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .doc h3 { font-size: 21px; font-weight: 700; letter-spacing: -0.4px; margin: 26px 0 10px; }
+  .doc p { font-size: 15.5px; line-height: 1.68; color: #C9CAD0; margin: 0 0 14px; }
+  .doc ul { margin: 0 0 14px; padding: 0; list-style: none; }
+  .doc li { font-size: 15.5px; line-height: 1.6; color: #C9CAD0; padding: 8px 0 8px 26px; position: relative; border-bottom: 1px solid var(--line); }
+  .doc li:last-child { border-bottom: none; }
+  .doc li::before { content: ""; position: absolute; left: 4px; top: 16px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .doc strong { color: var(--ink); font-weight: 600; }
+  .contact-card { background: var(--panel); border: 1px solid var(--lineHard); border-radius: 18px; padding: 26px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 10px; }
+  .contact-card .t h3 { margin: 0; font-size: 20px; }
+  .contact-card .t p { margin: 6px 0 0; font-size: 14.5px; color: var(--soft); }
+  .btn-primary { display: inline-flex; align-items: center; gap: 9px; background: var(--accent); color: #fff; padding: 12px 22px; border-radius: 999px; font-family: var(--body); font-size: 14.5px; font-weight: 700; }
+  .btn-primary:hover { background: var(--accent2); color: #fff; }
+
+  footer { border-top: 1px solid var(--line); padding: 50px 0 40px; }
+  .foot-wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .foot { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+  .foot .brand span { font-size: 18px; }
+  .foot .tag { font-size: 13.5px; color: var(--mute); margin-top: 12px; max-width: 280px; line-height: 1.5; }
+  .foot-links { display: flex; gap: 54px; flex-wrap: wrap; }
+  .foot-col { display: flex; flex-direction: column; gap: 11px; }
+  .foot-col .h { font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--mute); margin-bottom: 4px; }
+  .foot-col a { color: var(--soft); font-size: 14px; }
+  .foot-col a:hover { color: var(--ink); }
+  .copyright { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--mute); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  @media (max-width: 720px) {
+    .nav-links { gap: 18px; }
+    .nav-links a:not(.active):first-child { display: none; }
+    .hero-doc h1 { font-size: 38px; }
+  }
+</style>
 </head>
 <body>
-  <h1>Política de Privacidade — TachoBot</h1>
-  <p><em>Última atualização: 13 de julho de 2026</em></p>
 
-  <h2>1. Recolha de dados</h2>
-  <p>A TachoBot não tem servidores próprios e não recolhe nem armazena os teus
-  dados pessoais em servidores nossos. Os conteúdos que introduzes ou geras na
-  app (ver secção 2) ficam exclusivamente no teu dispositivo. A app utiliza,
-  contudo, serviços de terceiros que processam dados anónimos de utilização e
-  diagnóstico (secção 3), publicidade (secção 4) e compras in-app (secção 5),
-  descritos em detalhe abaixo.</p>
+<header>
+  <div class="nav">
+    <a class="brand" href="./index.html">
+      <img src="brand/mark-enamel.png" alt="TachoBot" />
+      <span>TachoBot</span>
+    </a>
+    <nav class="nav-links">
+      <a href="./index.html">Início</a>
+      <a href="./index.html#funcionalidades">Funcionalidades</a>
+      <a href="./support.html">Suporte</a>
+      <a href="./privacy.html" class="active">Privacidade</a>
+      <a class="btn-primary nav-cta" href="./index.html#descarregar">Descarregar</a>
+    </nav>
+  </div>
+</header>
 
-  <h2>2. Dados armazenados localmente</h2>
-  <p>A app pode guardar no dispositivo:</p>
-  <ul>
-    <li>Nome do utilizador</li>
-    <li>Receitas importadas ou criadas pelo utilizador</li>
-    <li>Menus semanais gerados ou editados</li>
-    <li>Receitas marcadas como favoritas</li>
-    <li>Lista de compras</li>
-    <li>O estado da versão Pro e as tuas preferências (ex: consentimento de anúncios)</li>
-  </ul>
-  <p>Estes dados não são partilhados com terceiros e podem ser apagados a
-  qualquer momento através das definições da app ou desinstalando a app.</p>
+<section class="hero-doc">
+  <div class="wrap">
+    <div class="kicker">Legal</div>
+    <h1>Política de Privacidade</h1>
+    <div class="updated">Última atualização: 13 de julho de 2026</div>
+  </div>
+</section>
 
-  <h2>3. Análise de utilização e diagnóstico</h2>
-  <p>Para compreender como a app é usada e corrigir problemas, a TachoBot recorre
-  a serviços da <strong>Google (Firebase)</strong>:</p>
-  <ul>
-    <li><strong>Firebase Analytics</strong> — recolhe dados de utilização
-    anónimos, como os ecrãs visitados, as receitas abertas e o robot de cozinha
-    selecionado. Estes dados não te identificam pessoalmente e servem apenas para
-    melhorar a app.</li>
-    <li><strong>Firebase Crashlytics</strong> — recolhe relatórios de erros e
-    dados de diagnóstico e desempenho quando ocorre uma falha, para que possamos
-    identificar e corrigir problemas.</li>
-  </ul>
-  <p>Estes dados são processados pela Google de acordo com a
-  <a href="https://policies.google.com/privacy">Política de Privacidade da Google</a>.
-  Não são utilizados para te rastrear entre aplicações ou websites de terceiros.</p>
+<main class="doc">
+  <div class="wrap">
+    <p class="lead">A TachoBot não tem servidores próprios e não recolhe nem armazena os teus dados pessoais em servidores nossos. Os conteúdos que introduzes ou geras na app ficam exclusivamente no teu dispositivo. A app utiliza serviços de terceiros que processam dados anónimos de utilização e diagnóstico, publicidade e compras in-app, descritos abaixo.</p>
 
-  <h2>4. Publicidade</h2>
-  <p>A versão gratuita da app apresenta anúncios fornecidos pelo
-  <strong>Google AdMob</strong>. Para servir anúncios, o AdMob pode recolher e
-  processar identificadores do dispositivo (incluindo o identificador de
-  publicidade) e dados de utilização, de acordo com as suas próprias políticas.
-  Para mais informações, consulta a
-  <a href="https://policies.google.com/privacy">Política de Privacidade da Google</a>.</p>
-  <p>No Espaço Económico Europeu, antes de serem apresentados anúncios é mostrado
-  um formulário de <strong>consentimento (Google UMP)</strong>, em conformidade
-  com o RGPD. No iOS é também pedida a permissão de <em>App Tracking
-  Transparency</em> antes de qualquer anúncio personalizado. Podes rever ou
-  revogar o teu consentimento a qualquer momento através das definições da app.</p>
-  <p>Os utilizadores da versão <strong>Pro</strong> não veem anúncios e, por
-  isso, o SDK de publicidade não recolhe quaisquer dados.</p>
+    <section>
+      <h2>1 · Recolha de dados</h2>
+      <p>A TachoBot não tem servidores próprios e não recolhe nem armazena os teus dados pessoais em servidores nossos. Os conteúdos que introduzes ou geras na app (ver secção 2) ficam exclusivamente no teu dispositivo. A app utiliza, contudo, serviços de terceiros que processam dados anónimos de utilização e diagnóstico (secção 3), publicidade (secção 4) e compras in-app (secção 5).</p>
+    </section>
 
-  <h2>5. Compras in-app (Pro)</h2>
-  <p>A app oferece uma compra única opcional (TachoBot Pro) que desbloqueia
-  funcionalidades adicionais e remove os anúncios. A compra é processada
-  diretamente pela loja de aplicações — <strong>Google Play</strong> (Android) ou
-  <strong>App Store</strong> (iOS) —, que trata do pagamento e dos teus dados de
-  faturação de acordo com as respetivas políticas de privacidade. A TachoBot não
-  recebe nem armazena os teus dados de pagamento; apenas guarda localmente no
-  dispositivo a informação de que a versão Pro está ativa.</p>
+    <section>
+      <h2>2 · Dados armazenados localmente</h2>
+      <p>A app pode guardar no dispositivo:</p>
+      <ul>
+        <li>Nome do utilizador</li>
+        <li>Receitas importadas ou criadas pelo utilizador</li>
+        <li>Menus semanais gerados ou editados</li>
+        <li>Receitas marcadas como favoritas</li>
+        <li>Lista de compras</li>
+        <li>O estado da versão Pro e as tuas preferências (ex.: consentimento de anúncios)</li>
+      </ul>
+      <p>Estes dados não são partilhados com terceiros e podem ser apagados a qualquer momento através das definições da app ou desinstalando a app.</p>
+    </section>
 
-  <h2>6. Contacto</h2>
-  <p>Para qualquer questão relacionada com privacidade, podes contactar através
-  de: <a href="mailto:quemcoda@gmail.com">quemcoda@gmail.com</a></p>
+    <section>
+      <h2>3 · Análise de utilização e diagnóstico</h2>
+      <p>Para compreender como a app é usada e corrigir problemas, a TachoBot recorre a serviços da <strong>Google (Firebase)</strong>:</p>
+      <ul>
+        <li><strong>Firebase Analytics</strong> — recolhe dados de utilização anónimos, como os ecrãs visitados, as receitas abertas e o robô de cozinha selecionado. Estes dados não te identificam pessoalmente e servem apenas para melhorar a app.</li>
+        <li><strong>Firebase Crashlytics</strong> — recolhe relatórios de erros e dados de diagnóstico e desempenho quando ocorre uma falha, para que possamos identificar e corrigir problemas.</li>
+      </ul>
+      <p>Estes dados são processados pela Google de acordo com a <a href="https://policies.google.com/privacy">Política de Privacidade da Google</a>. Não são utilizados para te rastrear entre aplicações ou websites de terceiros.</p>
+    </section>
+
+    <section>
+      <h2>4 · Publicidade</h2>
+      <p>A versão gratuita da app apresenta anúncios fornecidos pelo <strong>Google AdMob</strong>. Para servir anúncios, o AdMob pode recolher e processar identificadores do dispositivo (incluindo o identificador de publicidade) e dados de utilização, de acordo com as suas próprias políticas. Para mais informações, consulta a <a href="https://policies.google.com/privacy">Política de Privacidade da Google</a>.</p>
+      <p>No Espaço Económico Europeu, antes de serem apresentados anúncios é mostrado um formulário de <strong>consentimento (Google UMP)</strong>, em conformidade com o RGPD. No iOS é também pedida a permissão de <em>App Tracking Transparency</em> antes de qualquer anúncio personalizado. Podes rever ou revogar o teu consentimento a qualquer momento através das definições da app.</p>
+      <p>Os utilizadores da versão <strong>Pro</strong> não veem anúncios e, por isso, o SDK de publicidade não recolhe quaisquer dados.</p>
+    </section>
+
+    <section>
+      <h2>5 · Compras in-app (Pro)</h2>
+      <p>A app oferece uma compra única opcional (TachoBot Pro) que desbloqueia funcionalidades adicionais e remove os anúncios. A compra é processada diretamente pela loja de aplicações — <strong>Google Play</strong> (Android) ou <strong>App Store</strong> (iOS) —, que trata do pagamento e dos teus dados de faturação de acordo com as respetivas políticas de privacidade. A TachoBot não recebe nem armazena os teus dados de pagamento; apenas guarda localmente no dispositivo a informação de que a versão Pro está ativa.</p>
+    </section>
+
+    <section>
+      <h2>6 · Contacto</h2>
+      <div class="contact-card">
+        <div class="t">
+          <h3>Dúvidas sobre privacidade?</h3>
+          <p>Escreve-nos e respondemos o mais depressa possível.</p>
+        </div>
+        <a class="btn-primary" href="mailto:quemcoda@gmail.com">quemcoda@gmail.com</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="./index.html"><img src="brand/mark-enamel.png" alt="TachoBot" /><span>TachoBot</span></a>
+        <div class="tag">O teu ajudante de cozinha para Bimby, Yammi e outros robôs.</div>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <div class="h">Produto</div>
+          <a href="./index.html#funcionalidades">Funcionalidades</a>
+          <a href="./index.html#descarregar">Descarregar</a>
+        </div>
+        <div class="foot-col">
+          <div class="h">Apoio</div>
+          <a href="./support.html">Suporte</a>
+          <a href="./privacy.html">Privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2026 QuemCoda · TachoBot</span>
+      <span>Feito com carinho em Portugal</span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
